@@ -1,5 +1,5 @@
 {% set name = "rvc3python" %}
-{% set version = "0.2.3" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rvc3python-{{ version }}.tar.gz
-  sha256: 8c06b5db796a66a85954be8586e760d7b3fd1eb63e1a8db235d938d545d00a97
+  sha256: 07fc3aca321694b2fabbc219cab58e11c3fc675b02be2fea57e84cf62da40203
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
