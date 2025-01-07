@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rvc3python-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/rvc3python-{{ version }}.tar.gz
   sha256: 8901fc0f52181311e9875ea3f940c18899f49ea1946aca8c2be05481db56cac0
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - matplotlib-base
     - roboticstoolbox-python
     - spatialgeometry
@@ -37,6 +37,8 @@ requirements:
     - opencv
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - RVC3
 
